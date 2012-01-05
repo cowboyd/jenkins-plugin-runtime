@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Jenkins::Model::Build do
   include Jenkins::Model
+  include Jenkins::Mocks
   include SpecHelper
 
-  before :each do
-    @native = mockito(Java.hudson.model.AbstractBuild)
-    @native.buildEnvironments = java.util.ArrayList.new
+  before do
+    @native = Jenkins::Mocks::NativeBuild.new
     @build = Jenkins::Model::Build.new(@native)
   end
 
@@ -49,7 +49,6 @@ describe Jenkins::Model::Build do
     before do
       @build.env['FOO'] = 'bar'
       @build.env[:bar] = :baz
-      Java.org.mockito.Mockito.when(@native.getEvironment(nil)).thenCallRealMethod()
       @vars = @native.getEnvironment(nil)
     end
 

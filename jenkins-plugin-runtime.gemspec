@@ -25,5 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", "~> 2.0"
   s.add_development_dependency "rspec-spies"
   s.add_development_dependency "jenkins-war"
+  s.add_development_dependency "factory_girl"
+  s.add_development_dependency "i18n"
 
 end
