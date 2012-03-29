@@ -43,7 +43,7 @@ module Jenkins::Model
     class DefaultEnvironment < Java.hudson.model.Environment
       include EnvironmentWrapper
       def initialize(proxy, plugin, object)
-		super()
+        super()
         @plugin = plugin
         @object = object
       end
